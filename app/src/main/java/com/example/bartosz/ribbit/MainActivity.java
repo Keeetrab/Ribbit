@@ -1,8 +1,10 @@
 package com.example.bartosz.ribbit;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -41,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         ParseUser currentUser = ParseUser.getCurrentUser();
-        if(currentUser == null) {
+        if (currentUser == null) {
             navigateToLogin();
         } else {
             Toast.makeText(MainActivity.this, "Hello " + currentUser.getUsername() + "!", Toast.LENGTH_SHORT).show();
@@ -61,19 +64,57 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabInbox) ;
+
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                switch (position) {
+                    case 0:
+                        fab.hide();
+                        fab = (FloatingActionButton) findViewById(R.id.fabInbox);
+                        fab.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(MainActivity.this, "Well it works", Toast.LENGTH_SHORT).show();
+                                ;
+                            }
+                        });
+                        fab.show();
+                        break;
+                    case 1:
+                        fab.hide();
+                        fab = (FloatingActionButton) findViewById(R.id.fabFriends);
+                        fab.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(MainActivity.this, EditFriendsActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                        fab.show();
+                        break;
+
+                    default:
+                        fab.hide();
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
             }
         });
-
     }
-
-
     private void navigateToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

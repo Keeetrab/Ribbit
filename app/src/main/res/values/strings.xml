@@ -29,4 +29,6 @@
     <string name="friends">Friends</string>
     <string name="no_messages">No messages to display :(</string>
     <string name="add_friends">Huh? It\'s pretty empty here</string>
+    <string name="title_activity_tab_testing">tabTesting</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
 </resources>

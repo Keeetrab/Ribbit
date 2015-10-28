@@ -22,4 +22,5 @@
         android:text="@string/add_friends"
         android:textSize="20dp"/>
 
+
 </RelativeLayout>

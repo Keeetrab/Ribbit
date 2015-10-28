@@ -15,7 +15,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,11 +31,23 @@
             android:parentActivityName=".LoginActivity"
             android:screenOrientation="portrait" >
         </activity>
-        <!--<activity
+        <!--
+        <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_inbox"
             android:theme="@style/AppTheme.NoActionBar" >
-        </activity>-->
+        </activity>
+        -->
+        <activity
+            android:name=".EditFriendsActivity"
+            android:label="@string/title_activity_edit_friends"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.bartosz.ribbit.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
