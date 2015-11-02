@@ -31,4 +31,5 @@
     <string name="add_friends">Huh? It\'s pretty empty here</string>
     <string name="title_activity_tab_testing">tabTesting</string>
     <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="error_toast">Oops, there was an error!</string>
 </resources>
