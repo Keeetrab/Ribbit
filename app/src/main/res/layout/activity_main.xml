@@ -51,14 +51,14 @@
         app:fabSize="normal"
         />
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabInbox"
+        android:id="@+id/fabCamera"
         app:layout_anchor="@id/container"
         app:layout_anchorGravity="bottom|end"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
-        android:src="@android:drawable/arrow_up_float"
+        android:src="@drawable/ic_camera_alt_white_24dp"
         app:fabSize="normal"
         />
 
