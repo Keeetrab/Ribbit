@@ -21,10 +21,14 @@ import android.view.View;
 
 import android.widget.Toast;
 
+import com.example.bartosz.ribbit.Adapters.SectionsPagerAdapter;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -55,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
 
+    public static final int FILE_SIZE_LIMIT = 1024*1024*10; // 10 MB
+
     protected Uri mMediaUri;
 
 
@@ -80,14 +86,20 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri);
                         takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
+                        //TODO: Video Quality still too high
                         takeVideoIntent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
                         startActivityForResult(takeVideoIntent, TAKE_VIDEO_REQUEST);
                     }
                     break;
                 case 2: //Choose Picture
-
+                    Intent choosePhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    choosePhotoIntent.setType("image/*");
+                    startActivityForResult(choosePhotoIntent, PICK_PHOTO_REQUEST);
                     break;
                 case 3: //Choose Video
+                    Intent chooseVideoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    chooseVideoIntent.setType("video/*");
+                    startActivityForResult(chooseVideoIntent, PICK_VIDEO_REQUEST);
                     break;
             }
         }
@@ -190,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         fabFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, EditFriendsActivity.class);
+                Intent intent = new Intent(MainActivity.this, EditFriendsActivty2.class);
                 startActivity(intent);
             }
         });
@@ -208,12 +220,10 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         fabFriends.hide();
-
                         fabCamera.show();
                         break;
                     case 1:
                         fabCamera.hide();
-
                         fabFriends.show();
                         break;
 
@@ -234,10 +244,49 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(resultCode == RESULT_OK){
-            //add to gallery
-            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-            mediaScanIntent.setData(mMediaUri);
-            sendBroadcast(mediaScanIntent);
+
+            if(requestCode == PICK_PHOTO_REQUEST || requestCode == PICK_VIDEO_REQUEST){
+
+                if(data == null){
+                    Toast.makeText(MainActivity.this, R.string.general_error, Toast.LENGTH_SHORT).show();
+                } else {
+                    mMediaUri = data.getData();
+                }
+
+                if (requestCode == PICK_VIDEO_REQUEST){
+                    int fileSize = 0;
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = getContentResolver().openInputStream(mMediaUri);
+                        fileSize = inputStream.available();
+                    } catch (FileNotFoundException e) {
+                        Toast.makeText(MainActivity.this, R.string.problem_with_file, Toast.LENGTH_SHORT).show();
+                        return;
+                    } catch (IOException e){
+                        Toast.makeText(MainActivity.this, R.string.problem_with_file, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    finally {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e) {
+                            Log.i(TAG, e.getMessage());
+                        }
+                    }
+
+                    if(fileSize >= FILE_SIZE_LIMIT){
+                        Toast.makeText(MainActivity.this, R.string.too_large_file, Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+
+            } else {
+                //add to gallery
+                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                mediaScanIntent.setData(mMediaUri);
+                sendBroadcast(mediaScanIntent);
+            }
 
         } else if (resultCode != RESULT_CANCELED){
             Toast.makeText(MainActivity.this, R.string.general_error, Toast.LENGTH_SHORT).show();

@@ -34,10 +34,14 @@
     <string name="error_toast">Oops, there was an error!</string>
     <string name="external_storage_access_error">There was a problem with accessing your device\'s external storage.</string>
     <string name="general_error">Sorry, there was an error!</string>
+    <string name="problem_with_file">There was a problem with the selected file.</string>
+    <string name="too_large_file">Selected file is too large. Please select a file smaller than 10 MB.</string>
     <string-array name="camera_choices">
         <item>Take Picture</item>
         <item>Take Video</item>
         <item>Choose Picture</item>
         <item>Choose Video</item>
     </string-array>
+    <string name="title_activity_recipents">Recipents</string>
+    <string name="title_activity_edit_friends_activty2">EditFriendsActivty2</string>
 </resources>

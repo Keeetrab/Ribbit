@@ -1,10 +1,14 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.Adapters;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.bartosz.ribbit.FriendsFragment;
+import com.example.bartosz.ribbit.InboxFragment;
+import com.example.bartosz.ribbit.R;
 
 /**
  * Created by Bartosz on 28.10.2015.

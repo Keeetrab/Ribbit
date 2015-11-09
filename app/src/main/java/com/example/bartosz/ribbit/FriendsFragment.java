@@ -41,14 +41,6 @@ public class FriendsFragment extends ListFragment {
         View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
         ButterKnife.bind(this, rootView);
         mProgressBar.setVisibility(View.INVISIBLE);
-       /* FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), EditFriendsActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
         return rootView;
     }
