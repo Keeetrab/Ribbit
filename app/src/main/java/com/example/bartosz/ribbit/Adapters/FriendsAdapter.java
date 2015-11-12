@@ -9,10 +9,12 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.bartosz.ribbit.R;
+import com.parse.ParseException;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Bartosz on 05.11.2015.
@@ -23,16 +25,22 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.FriendsV
 
     private List<ParseUser> mUsers;
     private List<ParseUser> mFriends;
+    protected ParseRelation<ParseUser> mFriendsRelation;
+    protected ParseUser mCurrentUser;
 
 
-    public FriendsAdapter(List<ParseUser> users, List<ParseUser> friends){
+    public FriendsAdapter(List<ParseUser> users, List<ParseUser> friends, ParseRelation<ParseUser> friendsRelation, ParseUser currentUser){
         mUsers = users;
         mFriends = friends;
+        mFriendsRelation = friendsRelation;
+        mCurrentUser = currentUser;
     }
 
-    public void updateFriendsLists(List<ParseUser> users, List<ParseUser> friends){
+    public void updateFriendsLists(List<ParseUser> users, List<ParseUser> friends, ParseRelation<ParseUser> friendsRelation, ParseUser currentUser){
         mUsers = users;
         mFriends = friends;
+        mFriendsRelation = friendsRelation;
+        mCurrentUser = currentUser;
         notifyDataSetChanged();
     }
 
@@ -61,6 +69,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.FriendsV
 
     }
 
+
     public class FriendsViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mNameLabel;
@@ -73,9 +82,30 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.FriendsV
             mCheckBox = (CheckBox) itemView.findViewById(R.id.checkBox);
         }
 
-        public void bindFriends (ParseUser user){
+        public void bindFriends (final ParseUser user){
             mNameLabel.setText(user.getUsername());
             mCheckBox.setChecked(false);
+
+            mCheckBox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mCheckBox.isChecked()) {
+                        mFriendsRelation.add(user);
+                    } else {
+                        mFriendsRelation.remove(user);
+                    }
+
+                    mCurrentUser.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e != null) {
+                                Log.i(TAG, e.getMessage());
+                            }
+                        }
+                    });
+
+                }
+            });
 
             for (ParseUser friend : mFriends){
                     if(friend.getObjectId().equals(user.getObjectId())){
@@ -83,7 +113,6 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.FriendsV
                         break;
                     }
             }
-            Log.i(TAG, "Name: " + user.getUsername() + " Checked: " + mCheckBox.isChecked());
         }
     }
 

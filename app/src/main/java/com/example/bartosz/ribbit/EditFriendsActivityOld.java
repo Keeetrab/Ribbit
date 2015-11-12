@@ -2,7 +2,6 @@ package com.example.bartosz.ribbit;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -23,9 +22,9 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class EditFriendsActivity extends ListActivity {
+public class EditFriendsActivityOld extends ListActivity {
 
-    private static final String TAG = EditFriendsActivity.class.getSimpleName();
+    private static final String TAG = EditFriendsActivityOld.class.getSimpleName();
 
     protected List<ParseUser> mUsers;
     protected ParseRelation<ParseUser> mFriendsRelation;
@@ -73,13 +72,13 @@ public class EditFriendsActivity extends ListActivity {
                         i++;
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(EditFriendsActivity.this, android.R.layout.simple_list_item_checked, usernames);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(EditFriendsActivityOld.this, android.R.layout.simple_list_item_checked, usernames);
                     setListAdapter(adapter);
 
                     addFriendCheckmarks();
 
                 } else {
-                    Toast.makeText(EditFriendsActivity.this, R.string.error_toast, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditFriendsActivityOld.this, R.string.error_toast, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, e.getMessage());
                 }
             }

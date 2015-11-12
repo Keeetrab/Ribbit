@@ -43,5 +43,5 @@
         <item>Choose Video</item>
     </string-array>
     <string name="title_activity_recipents">Recipents</string>
-    <string name="title_activity_edit_friends_activty2">EditFriendsActivty2</string>
+    <string name="title_activity_edit_friends_activty">Edit Friends</string>
 </resources>

@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         fabFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, EditFriendsActivty2.class);
+                Intent intent = new Intent(MainActivity.this, EditFriendsActivty.class);
                 startActivity(intent);
             }
         });

@@ -4,7 +4,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/activity_edit_friends"
-                tools:context="com.example.bartosz.ribbit.EditFriendsActivity">
+                tools:context="com.example.bartosz.ribbit.EditFriendsActivityOld">
 
     <ListView
         android:layout_width="match_parent"

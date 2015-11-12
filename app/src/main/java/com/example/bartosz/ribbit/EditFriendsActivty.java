@@ -9,25 +9,21 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.bartosz.ribbit.Adapters.FriendsAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 import java.util.List;
 
-import butterknife.Bind;
+public class EditFriendsActivty extends AppCompatActivity {
 
-public class EditFriendsActivty2 extends AppCompatActivity {
-
-    private static final String TAG = EditFriendsActivty2.class.getSimpleName();
+    private static final String TAG = EditFriendsActivty.class.getSimpleName();
     private ParseUser mCurrentUser;
     private ParseRelation<ParseUser> mFriendsRelation;
     private List<ParseUser> mFriends;
@@ -61,13 +57,12 @@ public class EditFriendsActivty2 extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        adapter = new FriendsAdapter(mUsers, mFriends);
+        adapter = new FriendsAdapter(mUsers, mFriends, mFriendsRelation, mCurrentUser);
 
         mRecyclerView.setAdapter(adapter);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(EditFriendsActivty2.this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(EditFriendsActivty.this);
         mRecyclerView.setLayoutManager(layoutManager);
-
         mRecyclerView.setHasFixedSize(true);
 
         showFriendsList();
@@ -94,7 +89,7 @@ public class EditFriendsActivty2 extends AppCompatActivity {
                     mUsers = list;
                     downloadFriends();
                 } else {
-                    Toast.makeText(EditFriendsActivty2.this, R.string.error_toast, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditFriendsActivty.this, R.string.error_toast, Toast.LENGTH_SHORT).show();
                     Log.i(TAG, e.getMessage());
                 }
             }
@@ -108,7 +103,7 @@ public class EditFriendsActivty2 extends AppCompatActivity {
                 mProgressBar.setVisibility(View.INVISIBLE);
                 if (e == null) {
                     mFriends = list;
-                    adapter.updateFriendsLists(mUsers, mFriends);
+                    adapter.updateFriendsLists(mUsers, mFriends, mFriendsRelation, mCurrentUser);
 
                 } else {
                     Log.i(TAG, e.getMessage());
@@ -116,5 +111,8 @@ public class EditFriendsActivty2 extends AppCompatActivity {
             }
         });
     }
+
+
+
 
 }

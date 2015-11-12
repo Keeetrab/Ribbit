@@ -38,7 +38,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".EditFriendsActivity"
+            android:name=".EditFriendsActivityOld"
             android:label="@string/title_activity_edit_friends"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
@@ -51,15 +51,17 @@
             android:name=".RecipientsActivity"
             android:label="@string/title_activity_recipents"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bartosz.ribbit.MainActivity" />
         </activity>
         <activity
-            android:name=".EditFriendsActivty2"
-            android:label="@string/title_activity_edit_friends_activty2"
+            android:name=".EditFriendsActivty"
+            android:label="@string/title_activity_edit_friends_activty"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
