@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.bartosz.ribbit.Adapters.FriendsAdapter;
+import com.example.bartosz.ribbit.Others.ParseConstants;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

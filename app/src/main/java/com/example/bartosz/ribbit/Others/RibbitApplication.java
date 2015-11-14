@@ -1,4 +1,4 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.Others;
 
 import android.app.Application;
 

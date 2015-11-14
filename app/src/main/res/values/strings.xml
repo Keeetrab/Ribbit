@@ -44,4 +44,10 @@
     </string-array>
     <string name="title_activity_recipents">Recipents</string>
     <string name="title_activity_edit_friends_activty">Edit Friends</string>
+    <string name="title_activity_recipients2">RecipientsActivity2</string>
+    <string name="no_recipients">You should add some friends first</string>
+    <string name="error_selecting_file">Oops! There was a problem with selected file. Please select another file</string>
+    <string name="title_selecting_file_title">We are sorry!</string>
+    <string name="success_message">Message sent</string>
+    <string name="error_sending_message">There was an error with sending your message, please try again</string>
 </resources>
