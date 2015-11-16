@@ -67,6 +67,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bartosz.ribbit.MainActivity" />
         </activity>
+        <activity
+            android:name=".ViewImageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_view_image"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/FullscreenTheme"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.bartosz.ribbit.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

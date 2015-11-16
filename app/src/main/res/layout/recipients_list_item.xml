@@ -17,7 +17,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingLeft="40dp"
-        android:textSize="20sp"/>
+        android:textSize="@dimen/list_text_size"/>
 
     <CheckBox
         android:layout_width="wrap_content"

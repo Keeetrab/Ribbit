@@ -50,4 +50,8 @@
     <string name="title_selecting_file_title">We are sorry!</string>
     <string name="success_message">Message sent</string>
     <string name="error_sending_message">There was an error with sending your message, please try again</string>
+
+    <string name="title_activity_view_image">ViewImageActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
