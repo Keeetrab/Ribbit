@@ -16,8 +16,8 @@
     </string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
-    <string name="log_in_button">Log in</string>
-    <string name="sign_up_text">Sign Up</string>
+    <string name="log_in_button">Sign in</string>
+    <string name="sign_up_text">Dont\'t have an account? Sign Up!</string>
     <string name="email_Field">Email Adress</string>
     <string name="login_error_title">Oops!</string>
     <string name="title_activity_test">testActivity</string>
@@ -54,4 +54,6 @@
     <string name="title_activity_view_image">ViewImageActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="content_desc_background_image">Ribbit Frog Background Image</string>
+    <string name="subtitile">A Treehouse Project</string>
 </resources>

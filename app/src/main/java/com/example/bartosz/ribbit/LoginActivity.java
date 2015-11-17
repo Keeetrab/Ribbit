@@ -1,5 +1,6 @@
 package com.example.bartosz.ribbit;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         mProgressBar.setVisibility(View.INVISIBLE);
+
+        getSupportActionBar().hide();
 
     }
 
