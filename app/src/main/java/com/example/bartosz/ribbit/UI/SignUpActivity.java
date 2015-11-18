@@ -1,10 +1,8 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.UI;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.example.bartosz.ribbit.R;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -27,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Bind(R.id.usernameField) EditText mUsernameField;
     @Bind(R.id.passwordField) EditText mPasswordField;
     @Bind(R.id.signupButton) Button mSignUpButton;
+    @Bind(R.id.cancelButton) Button mCancelButton;
     @Bind(R.id.progressBar) ProgressBar mProgressBar;
 
     @Override
@@ -35,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
         mProgressBar.setVisibility(View.INVISIBLE);
+        getSupportActionBar().hide();
     }
 
     public static boolean isValidEmail(CharSequence target) {
@@ -103,5 +104,9 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+    @OnClick(R.id.cancelButton)
+    public void cancelOnClick(){
+        finish();
     }
 }

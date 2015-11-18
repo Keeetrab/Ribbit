@@ -1,4 +1,4 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.UI;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,7 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.bartosz.ribbit.Adapters.FriendsAdapter;
-import com.example.bartosz.ribbit.Others.ParseConstants;
+import com.example.bartosz.ribbit.Utilities.ParseConstants;
+import com.example.bartosz.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

@@ -4,7 +4,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
-    <dimen name="list_text_size">20sp</dimen>
+    <dimen name="list_text_size">16sp</dimen>
     <dimen name="login_vertical_margin">32dp</dimen>
     <dimen name="login_padding">10dp</dimen>
+    <dimen name="inbox_horizontal_margin">8dp</dimen>
+    <dimen name="inbox_vertical_margin">8dp</dimen>
+
 </resources>

@@ -1,13 +1,12 @@
 package com.example.bartosz.ribbit.Adapters;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.bartosz.ribbit.FriendsFragment;
-import com.example.bartosz.ribbit.InboxFragment;
+import com.example.bartosz.ribbit.UI.FriendsFragment;
+import com.example.bartosz.ribbit.UI.InboxFragment;
 import com.example.bartosz.ribbit.R;
 
 /**
@@ -37,7 +36,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 3 total pages.
+        // Show 2 total pages.
         return 2;
     }
 

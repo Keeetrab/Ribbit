@@ -1,10 +1,9 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.UI;
 
 import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,13 +14,13 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.bartosz.ribbit.Others.FileHelper;
-import com.example.bartosz.ribbit.Others.ParseConstants;
+import com.example.bartosz.ribbit.Utilities.FileHelper;
+import com.example.bartosz.ribbit.Utilities.ParseConstants;
+import com.example.bartosz.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;

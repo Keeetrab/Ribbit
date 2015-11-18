@@ -1,4 +1,4 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.UI;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
 import android.widget.ImageView;
 
+import com.example.bartosz.ribbit.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.Timer;

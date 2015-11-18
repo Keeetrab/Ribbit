@@ -1,4 +1,4 @@
-package com.example.bartosz.ribbit.Others;
+package com.example.bartosz.ribbit.Utilities;
 
 /**
  * Created by Bartosz on 29.10.2015.

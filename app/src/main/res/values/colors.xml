@@ -7,6 +7,7 @@
     <color name="light_grey">#bbbbbb</color>
     <color name="pressed_state">#ba9dda</color>
     <color name="focused_state">#d6c3ed</color>
+    <color name="light_purple_background">#e9e4ed</color>
 
     <color name="black_overlay">#66000000</color>
 </resources>

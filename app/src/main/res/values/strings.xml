@@ -56,4 +56,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="content_desc_background_image">Ribbit Frog Background Image</string>
     <string name="subtitile">A Treehouse Project</string>
+    <string name="sign_up_label">SIGN UP</string>
+    <string name="cancel_label">CANCEL</string>
+    <string name="button_divider">Button Divider</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.UI;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -10,7 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.bartosz.ribbit.Others.ParseConstants;
+import com.example.bartosz.ribbit.Utilities.ParseConstants;
+import com.example.bartosz.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseRelation;

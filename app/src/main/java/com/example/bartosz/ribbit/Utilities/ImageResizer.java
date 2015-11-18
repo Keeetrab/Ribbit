@@ -1,6 +1,4 @@
-package com.example.bartosz.ribbit.Others;
-
-import java.io.ByteArrayOutputStream;
+package com.example.bartosz.ribbit.Utilities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

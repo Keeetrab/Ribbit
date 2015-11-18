@@ -1,4 +1,4 @@
-package com.example.bartosz.ribbit;
+package com.example.bartosz.ribbit.UI;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -22,7 +22,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.bartosz.ribbit.Adapters.SectionsPagerAdapter;
-import com.example.bartosz.ribbit.Others.ParseConstants;
+import com.example.bartosz.ribbit.Utilities.ParseConstants;
+import com.example.bartosz.ribbit.R;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 

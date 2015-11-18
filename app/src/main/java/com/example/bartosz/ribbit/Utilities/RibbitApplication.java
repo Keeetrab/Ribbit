@@ -1,9 +1,8 @@
-package com.example.bartosz.ribbit.Others;
+package com.example.bartosz.ribbit.Utilities;
 
 import android.app.Application;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
 
 /**
  * Created by Bartosz on 20.10.2015.
