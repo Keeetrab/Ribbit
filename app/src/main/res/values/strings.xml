@@ -59,4 +59,5 @@
     <string name="sign_up_label">SIGN UP</string>
     <string name="cancel_label">CANCEL</string>
     <string name="button_divider">Button Divider</string>
+    <string name="title_activity_edit_friends2">EditFriendsActivity2</string>
 </resources>

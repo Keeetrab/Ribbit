@@ -72,11 +72,20 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_view_image"
             android:parentActivityName=".UI.MainActivity"
-            android:theme="@style/FullscreenTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".UI.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditFriendsActivity2"
+            android:label="@string/title_activity_edit_friends2"
+            android:parentActivityName=".UI.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.bartosz.ribbit.UI.MainActivity" />
         </activity>
     </application>
 
