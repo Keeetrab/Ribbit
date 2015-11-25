@@ -17,6 +17,12 @@
         android:scaleType="fitXY"
         android:adjustViewBounds="true"/>
 
+    <ImageView
+        android:id="@+id/checkImageView"
+        style="@style/GridImage"
+        android:src="@drawable/avatar_selected"
+        android:visibility="invisible" />
+
 
     <TextView
         android:layout_width="wrap_content"

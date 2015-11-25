@@ -38,6 +38,7 @@ public class FriendsFragment extends android.support.v4.app.Fragment {
     @Bind(R.id.progressBar) ProgressBar mProgressBar;
     @Bind(R.id.friendsGrid) GridView mGridView;
     @Bind(android.R.id.empty) TextView mEmptyTextView;
+
     public FriendsFragment() {
     }
 

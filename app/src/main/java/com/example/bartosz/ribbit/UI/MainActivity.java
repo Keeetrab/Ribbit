@@ -76,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser == null) {
             navigateToLogin();
-        } else {
-            Toast.makeText(MainActivity.this, "Hello " + currentUser.getUsername() + "!", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -111,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         fabFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, EditFriendsActivty.class);
+                Intent intent = new Intent(MainActivity.this, EditFriendsActivity2.class);
                 startActivity(intent);
             }
         });

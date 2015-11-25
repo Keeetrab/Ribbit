@@ -10,10 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.bartosz.ribbit.Adapters.UserAdapter;
 import com.example.bartosz.ribbit.Utilities.FileHelper;
 import com.example.bartosz.ribbit.Utilities.ParseConstants;
 import com.example.bartosz.ribbit.R;
@@ -38,7 +41,8 @@ public class RecipientsActivity2 extends AppCompatActivity {
     protected Uri mMediaUri;
     protected String mFileType;
     private ProgressBar mProgressBar;
-    private ListView mListView;
+    private GridView mGridView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +54,8 @@ public class RecipientsActivity2 extends AppCompatActivity {
         mMediaUri = getIntent().getData();
         mFileType = getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
 
-        mListView = (ListView) findViewById(android.R.id.list);
-        mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        mGridView = (GridView) findViewById(R.id.friendsGrid);
+        mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.INVISIBLE);
 
@@ -80,13 +84,24 @@ public class RecipientsActivity2 extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (mListView.getCheckedItemCount() > 0) {
+                if (mGridView.getCheckedItemCount() > 0) {
                     fab.show();
                 } else {
                     fab.hide();
+                }
+
+                ImageView checkImageView = (ImageView)view.findViewById(R.id.checkImageView);
+
+                if (mGridView.isItemChecked(position)) {
+                    // add the friend
+                    checkImageView.setVisibility(View.VISIBLE);
+                }
+                else {
+                    // remove the friend
+                    checkImageView.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -110,17 +125,14 @@ public class RecipientsActivity2 extends AppCompatActivity {
                     public void done(List<ParseUser> list, ParseException e) {
                         mProgressBar.setVisibility(View.INVISIBLE);
                         if (e == null) {
+                            // Success
                             mFriends = list;
-
-                            String[] usernames = new String[mFriends.size()];
-                            int i = 0;
-                            for (ParseUser user : mFriends) {
-                                usernames[i] = user.getUsername();
-                                i++;
+                            if (mGridView.getAdapter() == null) {
+                                UserAdapter adapter = new UserAdapter(RecipientsActivity2.this, mFriends);
+                                mGridView.setAdapter(adapter);
+                            } else {
+                                ((UserAdapter) mGridView.getAdapter()).refill(mFriends);
                             }
-
-                            ArrayAdapter<String> adapter = new ArrayAdapter<String>(RecipientsActivity2.this, android.R.layout.simple_list_item_checked, usernames);
-                            mListView.setAdapter(adapter);
                         } else {
                             Log.i(TAG, e.getMessage());
                             Toast.makeText(RecipientsActivity2.this, R.string.error_toast, Toast.LENGTH_SHORT).show();
@@ -179,14 +191,15 @@ public class RecipientsActivity2 extends AppCompatActivity {
 
     private ArrayList<String> getRecipientsIds() {
         ArrayList<String> recipientsIds = new ArrayList<String>();
-        for(int i = 0; i < mListView.getCount(); i++){
-            if(mListView.isItemChecked(i)){
+        for(int i = 0; i < mGridView.getCount(); i++){
+            if(mGridView.isItemChecked(i)){
                 recipientsIds.add(mFriends.get(i).getObjectId());
             }
         }
 
         return recipientsIds;
     }
+
 
 
 }

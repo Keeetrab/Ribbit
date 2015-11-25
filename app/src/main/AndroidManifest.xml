@@ -79,10 +79,12 @@
                 android:value=".UI.MainActivity" />
         </activity>
         <activity
-            android:name=".EditFriendsActivity2"
+            android:name=".UI.EditFriendsActivity2"
             android:label="@string/title_activity_edit_friends2"
             android:parentActivityName=".UI.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bartosz.ribbit.UI.MainActivity" />

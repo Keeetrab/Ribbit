@@ -60,4 +60,6 @@
     <string name="cancel_label">CANCEL</string>
     <string name="button_divider">Button Divider</string>
     <string name="title_activity_edit_friends2">EditFriendsActivity2</string>
+    <string name="empty_friends_label">Huh? It\'s pretty empty here</string>
+    <string name="error_title">Sorry!</string>
 </resources>

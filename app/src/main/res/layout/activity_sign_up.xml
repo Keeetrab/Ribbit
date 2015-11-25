@@ -20,7 +20,8 @@
     <TextView
         android:text="@string/subtitile"
         android:id="@+id/subtitle"
-        style="@style/AuthSubtitle"/>
+        style="@style/AuthSubtitle"
+        android:visibility="invisible"/>
     <LinearLayout
         android:id="@+id/editTextLayout"
         style="@style/AuthFieldContainer">
