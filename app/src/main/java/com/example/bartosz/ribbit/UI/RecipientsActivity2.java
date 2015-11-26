@@ -23,7 +23,10 @@ import com.example.bartosz.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
+import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -148,9 +151,10 @@ public class RecipientsActivity2 extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 mProgressBar.setVisibility(View.INVISIBLE);
-                if(e ==  null){
+                if (e == null) {
                     //success
                     Toast.makeText(RecipientsActivity2.this, R.string.success_message, Toast.LENGTH_SHORT).show();
+                    sendPushNotification();
                     finish();
 
                 } else {
@@ -164,6 +168,16 @@ public class RecipientsActivity2 extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void sendPushNotification() {
+        ParseQuery<ParseInstallation> query = ParseInstallation.getQuery();
+        query.whereContainedIn(ParseConstants.KEY_USER_ID, getRecipientsIds());
+
+        ParsePush push = new ParsePush();
+        push.setQuery(query);
+        push.setMessage(getString(R.string.push_message, ParseUser.getCurrentUser().getUsername()));
+        push.sendInBackground();
     }
 
     private ParseObject createMessage() {

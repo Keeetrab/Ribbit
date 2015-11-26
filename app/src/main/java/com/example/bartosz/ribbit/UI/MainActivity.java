@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        setupTabLayout(tabLayout);
 
         // Floating Action Buttons
 
@@ -327,5 +327,16 @@ public class MainActivity extends AppCompatActivity {
             navigateToLogin();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setupTabLayout(TabLayout tabLayout) {
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setupWithViewPager(mViewPager);
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setCustomView(mSectionsPagerAdapter.getTabView(i));
+        }
+        tabLayout.requestFocus();
     }
 }

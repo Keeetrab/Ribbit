@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bartosz.ribbit.R;
+import com.example.bartosz.ribbit.Utilities.RibbitApplication;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -57,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
                     mProgressBar.setVisibility(View.INVISIBLE);
                     if (e == null){
                         //Success
+                        RibbitApplication.updateParseInstallation(parseUser);
+
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
