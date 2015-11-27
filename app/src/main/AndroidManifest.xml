@@ -46,26 +46,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".UI.RecipientsActivity"
-            android:label="@string/title_activity_recipents"
-            android:parentActivityName=".UI.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".UI.MainActivity" />
-        </activity>
-        <activity
-            android:name=".UI.EditFriendsActivty"
-            android:label="@string/title_activity_edit_friends_activty"
-            android:parentActivityName=".UI.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".UI.MainActivity" />
-        </activity>
-        <activity
             android:name=".UI.RecipientsActivity2"
             android:label="@string/title_activity_recipients2"
             android:parentActivityName=".UI.MainActivity"

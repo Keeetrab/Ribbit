@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         //1. have at least six characters.
         //2. consists of only letters and digits.
         //3. must contain at least one digit.
-        if (password.length() < 6) {
+        if (password.length() < 5) {
             return false;
         } else {
             char c;
