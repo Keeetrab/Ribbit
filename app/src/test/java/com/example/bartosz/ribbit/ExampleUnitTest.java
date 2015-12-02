@@ -1,4 +1,4 @@
-package com.example.bartosz.ribbit;
+package com.kosewski.bartosz.ribbit;
 
 import org.junit.Test;
 

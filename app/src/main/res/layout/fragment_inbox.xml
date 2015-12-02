@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.example.bartosz.ribbit.UI.MainActivity$PlaceholderFragment">
+                tools:context="com.kosewski.bartosz.ribbit.UI.MainActivity$PlaceholderFragment">
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -18,8 +18,14 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:paddingTop="@dimen/inbox_vertical_margin"
         android:paddingBottom="@dimen/inbox_vertical_margin"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        android:background="@color/light_purple_background"
+        android:cacheColorHint="@color/light_purple_background"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0dp"
+        android:listSelector="@color/light_purple_background"/>
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <TextView

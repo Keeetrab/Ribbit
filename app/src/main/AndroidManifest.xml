@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bartosz.ribbit" >
+    package="com.kosewski.bartosz.ribbit" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,22 +12,22 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     >
     <permission android:protectionLevel="signature"
-                android:name="com.example.bartosz.ribbit.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.example.bartosz.ribbit.permission.C2D_MESSAGE" />
+                android:name="com.kosewski.bartosz.ribbit.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.kosewski.bartosz.ribbit.permission.C2D_MESSAGE" />
 ;
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
 
     <application
-        android:name=".Utilities.RibbitApplication"
+        android:name="com.kosewski.bartosz.ribbit.Utilities.RibbitApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".UI.MainActivity"
+            android:name="com.kosewski.bartosz.ribbit.UI.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -37,45 +37,45 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UI.LoginActivity"
+            android:name="com.kosewski.bartosz.ribbit.UI.LoginActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".UI.SignUpActivity"
-            android:parentActivityName=".UI.LoginActivity"
+            android:name="com.kosewski.bartosz.ribbit.UI.SignUpActivity"
+            android:parentActivityName="com.kosewski.bartosz.ribbit.UI.LoginActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".UI.RecipientsActivity2"
+            android:name="com.kosewski.bartosz.ribbit.UI.RecipientsActivity"
             android:label="@string/title_activity_recipients2"
-            android:parentActivityName=".UI.MainActivity"
+            android:parentActivityName="com.kosewski.bartosz.ribbit.UI.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".UI.MainActivity" />
+                android:value="com.kosewski.bartosz.ribbit.UI.MainActivity" />
         </activity>
         <activity
-            android:name=".UI.ViewImageActivity"
+            android:name="com.kosewski.bartosz.ribbit.UI.ViewImageActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_view_image"
-            android:parentActivityName=".UI.MainActivity"
+            android:parentActivityName="com.kosewski.bartosz.ribbit.UI.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".UI.MainActivity" />
+                android:value="com.kosewski.bartosz.ribbit.UI.MainActivity" />
         </activity>
         <activity
-            android:name=".UI.EditFriendsActivity2"
+            android:name="com.kosewski.bartosz.ribbit.UI.EditFriendsActivity"
             android:label="@string/title_activity_edit_friends2"
-            android:parentActivityName=".UI.MainActivity"
+            android:parentActivityName="com.kosewski.bartosz.ribbit.UI.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.bartosz.ribbit.UI.MainActivity" />
+                android:value="com.kosewski.bartosz.ribbit.UI.MainActivity" />
         </activity>
 
         <service android:name="com.parse.PushService" />
@@ -94,7 +94,7 @@
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
 
-                <category android:name="com.example.bartosz.ribbit" />
+                <category android:name="com.kosewski.bartosz.ribbit.ribbit" />
             </intent-filter>
         </receiver>
         <meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/ic_push_notification"/>
