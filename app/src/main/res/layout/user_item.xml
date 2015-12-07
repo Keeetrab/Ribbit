@@ -21,7 +21,7 @@
         android:id="@+id/checkImageView"
         style="@style/GridImage"
         android:src="@drawable/avatar_selected"
-        android:visibility="invisible" />
+        android:visibility="invisible"/>
 
 
     <TextView
