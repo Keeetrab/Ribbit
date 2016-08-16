@@ -1,15 +1,20 @@
 package com.kosewski.bartosz.ribbit.UI;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,6 +41,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int REQUEST_PERMISSIONS = 0;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -69,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        RequestPermissions();
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         ParseUser currentUser = ParseUser.getCurrentUser();
@@ -345,5 +352,39 @@ public class MainActivity extends AppCompatActivity {
             tab.setCustomView(mSectionsPagerAdapter.getTabView(i));
         }
         tabLayout.requestFocus();
+    }
+
+    void RequestPermissions(){
+        if (!CheckPermissions()){
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.GET_ACCOUNTS},
+                        REQUEST_PERMISSIONS);
+            }
+        }
+
+
+    boolean CheckPermissions(){
+        boolean camera = (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED);
+        boolean storage = (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+        boolean contacts =  (ContextCompat.checkSelfPermission(this, Manifest.permission.GET_ACCOUNTS) == PackageManager.PERMISSION_GRANTED);
+
+        return camera && storage && contacts;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PERMISSIONS: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else {
+                    Toast.makeText(MainActivity.this, "Please update your permissions to be able to send photos and videos", Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
+
+        }
     }
 }
